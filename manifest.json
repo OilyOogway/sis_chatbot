@@ -1,0 +1,18 @@
+{
+    "manifest_version": 3,
+    "name": "Sis Chatbot",
+    "version": "1.0.0",
+    "description": "Aid for students Choosing classes",
+    "icons":{
+        "16":"jumbo.png",
+        "48":"jumbo.png",
+        "128":"jumbo.png"
+    },
+    "action":{
+        "default_icon": "jumbo.png",
+        "default_title": "sis helper",
+        "default_popup":"popup.html"
+    },
+    "permissions":["activeTab","scripting"]
+  }
+  
