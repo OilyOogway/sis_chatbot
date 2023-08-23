@@ -86,3 +86,8 @@ submitButton.addEventListener('click', async () => {
     await run(prompt);
 });
 
+submitButton.addEventListener("keydown", async(e) => {
+    console.log(e.key);
+    const prompt = inputElement.value;
+    await run(prompt);
+});

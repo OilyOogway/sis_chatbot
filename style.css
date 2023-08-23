@@ -6,7 +6,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: blueviolet;
+    background-color: beige;
     display: flex;
 }
 
@@ -17,7 +17,7 @@ h1{
 }
 
 .side-bar{
-    background-color: #202123;
+    background-color: #3D2B1F;
     width: 100px;
     height: 100vh;
     display: flex;
@@ -81,16 +81,17 @@ input:focus{
 
 button{
     border: solid 0.5px rgba(255,255,255,0.5);
-    background-color: transparent;
+    color: white;
+    background-color: #9F8170;
     border-radius: 5px;
-    padding: 10px;
+    padding: 3px;
     margin: auto;
 
 }
 
 nav{
     border-top: solid 0.5px rgba(255,255,255,0.5);
-    padding: 10px;
+    padding: 3px;
     margin: auto;
 }
 
@@ -104,4 +105,5 @@ nav{
 
 .history p{
     cursor: pointer;
+    color: white;
 }
