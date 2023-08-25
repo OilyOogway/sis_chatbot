@@ -2,9 +2,10 @@ const submitButton = document.querySelector("#submit");
 const outputElement = document.querySelector("#output");
 const inputElement = document.querySelector("input");
 const historyElement = document.querySelector(".history");
+const loadButton = document.querySelector("#load");
 
 async function run(prompt) {
-  const URI = "http://192.168.1.21:5000/api/v1/generate"; // Your local API address
+  const URI = "http://192.168.1.4:5000/api/v1/generate"; // Your local API address
 
   const request = {
     prompt: prompt,
@@ -85,16 +86,35 @@ submitButton.addEventListener("click", async () => {
   await run(prompt);
 });
 
-submitButton.addEventListener("keydown", async (e) => {
-  console.log(e.key);
-  const prompt = inputElement.value;
-  await run(prompt);
-});
-
 document.addEventListener("keydown", async (e) => {
   console.log(e.key);
   if (e.key == "Enter") {
-    const prompt = inpoutElement.value;
+    const prompt = inputElement.value;
     await run(prompt);
   }
+});
+
+loadButton.addEventListener("click", async () => {
+  console.log("Load button clicked.");
+
+  // Inject and run the content script in the context of the active tab
+  const result = await chrome.scripting.executeScript({
+    target: {
+      tabId: (
+        await chrome.tabs.query({ active: true, currentWindow: true })
+      )[0].id,
+    },
+    function: () => {
+      console.log("FUNCTION IS RUNNING");
+      var days = document.querySelectorAll(".tfp-loc > div");
+      var text;
+      for (var i = 0; i < days.length; i++) {
+        var day = days[i];
+        text = day.textContent;
+        console.log(text);
+      }
+    },
+  });
+
+  //console.log(result);
 });
