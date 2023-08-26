@@ -19,7 +19,6 @@
     "http://192.168.1.21:5000/api/v1/generate"
   ],
   "background": {
-    "scripts": ["background.js"],
-    "persistent": false
+    "service_worker": "background.js"
   }
 }
